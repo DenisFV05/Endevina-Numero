@@ -7,13 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextNumber2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="115dp" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#38BEFF"
+        android:text="Endevinar"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="174dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
