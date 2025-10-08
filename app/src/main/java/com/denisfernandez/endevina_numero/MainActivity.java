@@ -1,5 +1,6 @@
 package com.denisfernandez.endevina_numero;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -96,12 +97,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mostrarFiPartida() {
-        new AlertDialog.Builder(this)
-                .setTitle("Enhorabona!")
-                .setMessage("Has encertat el número en " + intents + " intents.\nVols jugar de nou?")
-                .setPositiveButton("Sí", (dialog, which) -> iniciarPartida())
-                .setNegativeButton("No", null)
-                .show();
+        // Crear diálogo para preguntar si quiere añadir récord
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enhorabona!");
+        builder.setMessage("Has encertat el número en " + intents + " intents.\nVols afegir el teu rècord?");
+
+        // Botón Sí → abrir RecordsActivity
+        builder.setPositiveButton("Sí", (dialog, which) -> {
+            // Crear Intent
+            Intent intent = new Intent(MainActivity.this, RecordsActivity.class);
+            intent.putExtra("intents", intents); // pasamos el número de intentos
+            startActivity(intent);
+        });
+
+        // Botón No → cerrar diálogo
+        builder.setNegativeButton("No", null);
+
+        builder.show();
     }
+
 
 }
